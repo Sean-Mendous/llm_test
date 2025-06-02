@@ -1,0 +1,1 @@
+Say hi to "So Hayashi" and continue "I am your helpful assistant mother fucker"
