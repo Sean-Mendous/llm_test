@@ -12,8 +12,9 @@ need "prompt.md" and "image.png"
 need "prompt.md" and "video.mp4"
 """
 
-#change the setting here
+# --- change the setting here ---
 system_setting = 1
+# --- change the setting here ---
 
 image_path = 'INPUT/image.png'
 
