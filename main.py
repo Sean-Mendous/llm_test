@@ -1,3 +1,4 @@
+import os
 from llm.chatgpt_setting import chatgpt_4o, chatgpt_4omini, chatgpt_4o_image_model
 from llm.gemini_setting import gemini_20_flash_with_video, upload_video
 
@@ -14,7 +15,7 @@ need "prompt.md" and "video.mp4"
 
 # --- change the setting here ---
 system_setting = 1
-# --- change the setting here ---
+# --- change the setting here --- 
 
 image_path = 'INPUT/image.png'
 
@@ -102,6 +103,7 @@ def input(path):
 
 def output(path, output):
     try:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, 'w', encoding='utf-8') as file:
             file.write(output)
             print(' - output complete')
