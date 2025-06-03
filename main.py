@@ -1,4 +1,5 @@
 import os
+import base64
 from llm.chatgpt_setting import chatgpt_4o, chatgpt_4omini, chatgpt_4o_image_model
 from llm.gemini_setting import gemini_20_flash_with_video, upload_video
 
@@ -69,7 +70,14 @@ def text(prompt, model='chatgpt_4omini'):
 
 def image(prompt, image_path):
     try:
-        responce = chatgpt_4o_image_model(prompt, image_path)
+        with open(image_path, 'rb') as image_file:
+            encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
+            print(' - encoded image')
+    except Exception as e:
+        raise ValueError(f"Error: {e}")
+
+    try:
+        responce = chatgpt_4o_image_model(prompt, encoded_image)
         print(' - got responce')
     except Exception as e:
         raise ValueError(f"Error: {e}")
